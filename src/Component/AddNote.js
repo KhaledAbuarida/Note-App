@@ -30,16 +30,16 @@ function AddNote({newNote}){
         }
     }
     return(
-        <div className='note add bg-warning bg-gradient'>
+        <div className='note add bg-warning'>
             <input
-                className='bg-warning bg-gradient'
+                className='bg-warning'
                 type='text'
                 placeholder='Title'
                 value={noteTitle}
                 onChange={handleTitle}
             />
             <textarea
-                className='bg-warning bg-gradient'
+                className='bg-warning'
                 rows='4'
                 placeholder='Add text...'
                 value={noteText}
