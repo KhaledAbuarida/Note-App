@@ -4,17 +4,21 @@ import '../App.css'
 function AddNote({newNote}){
     const [noteText , setNoteText] = useState('')
     const [noteTitle, setNoteTitle] = useState('')
-    const TotalLetterLimit = 200
+    const textLetterLimit = 200
+    const titleLetterLimit = 20 
 
     const handleText=(event)=>{
-        if(TotalLetterLimit - event.target.value.length >= 0)
+        if(textLetterLimit - event.target.value.length >= 0)
         {
             setNoteText(event.target.value);
         }
     }
 
     const handleTitle= (e) => {
-        setNoteTitle(e.target.value)
+        if(titleLetterLimit - e.target.value.length >= 0)
+        {
+            setNoteTitle(e.target.value)
+        }
     }
 
     const handelSaveBtn = ()=>{
@@ -26,22 +30,24 @@ function AddNote({newNote}){
         }
     }
     return(
-        <div className='note add'>
+        <div className='note add bg-warning bg-gradient'>
             <input
+                className='bg-warning bg-gradient'
                 type='text'
                 placeholder='Title'
                 value={noteTitle}
                 onChange={handleTitle}
             />
             <textarea
-                rows='9'
+                className='bg-warning bg-gradient'
+                rows='4'
                 placeholder='Add text...'
                 value={noteText}
                 onChange={handleText}
             >
             </textarea>
             <div className='note-footer mt-2'>
-                <div>{TotalLetterLimit - noteText.length} Remaining</div>
+                <div>{textLetterLimit - noteText.length} Remaining</div>
                 <button className='btn btn-light rounded-pill' onClick={handelSaveBtn}>Save</button>
             </div>
             

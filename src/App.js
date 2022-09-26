@@ -2,8 +2,12 @@ import NoteList from './Component/NoteList'
 import { useState } from 'react'
 import { nanoid } from 'nanoid'
 import Search from './Component/Search'
-import { MdSettingsInputAntenna } from 'react-icons/md'
+import Header from './Component/Head'
+
+
 function App(){
+
+  // INITIALZING NOTE LIST STATE 
   const [note, setNote] = useState([
     {
       id: nanoid(),
@@ -25,6 +29,7 @@ function App(){
     }
   ])
 
+  // ADDING NOTE 
   const addNote = (text,title) => {
     const date = new Date();
     const Note = {
@@ -37,19 +42,34 @@ function App(){
     setNote(newNoteList)
   }
 
+
+  // DELETING NOTE
   const deleteNote = (id) => {
     const newNotes = note.filter((note)=> note.id !== id)
     setNote(newNotes);
   }
   
+
+  // HANDLING SEARCH BAR TEXT 
   const [searchText, setSearchText] = useState('');
+
+
+  // HANDLING TOGGLE MODE 
+  const [darkMode , setDarkMode] = useState(false)
+
   return(
-    <div className='container'>
-      <Search  handleSearchText={setSearchText}/>
-      <NoteList 
-        note={note.filter((note) => note.text.toLowerCase().includes(searchText))} 
-        generateNote={addNote} 
-        handleDelete={deleteNote}/>
+    <div className={`${darkMode && 'dark-mode'} body` }>
+      <div className='container'>
+        <Header 
+          setDarkModeState={setDarkMode}
+          modeState={darkMode}
+        />
+        <Search  handleSearchText={setSearchText}/>
+        <NoteList 
+          note={note.filter((note) => note.text.toLowerCase().includes(searchText))} 
+          generateNote={addNote} 
+          handleDelete={deleteNote}/>
+      </div>
     </div>
   )
 
