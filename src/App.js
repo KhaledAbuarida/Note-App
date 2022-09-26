@@ -1,5 +1,5 @@
 import NoteList from './Component/NoteList'
-import { useState } from 'react'
+import { useEffect , useState } from 'react'
 import { nanoid } from 'nanoid'
 import Search from './Component/Search'
 import Header from './Component/Head'
@@ -28,6 +28,23 @@ function App(){
       date: '25/9/2015'
     }
   ])
+  //SAVING TO LOCAL STORAGE
+
+  useEffect(()=>{
+    const note = JSON.parse(localStorage.getItem('note'));
+
+    if(note){
+      setNote(note);
+    }
+      
+  },[]);
+
+  useEffect(()=>{
+    if(note.length>0){
+      localStorage.setItem('note',JSON.stringify(note))
+    }
+  },[note]);
+
 
   // ADDING NOTE 
   const addNote = (text,title) => {
@@ -66,7 +83,7 @@ function App(){
         />
         <Search  handleSearchText={setSearchText}/>
         <NoteList 
-          note={note.filter((note) => note.text.toLowerCase().includes(searchText))} 
+          note={note.filter((note) => note.text.toLowerCase().includes(searchText.toLowerCase()))} 
           generateNote={addNote} 
           handleDelete={deleteNote}/>
       </div>
