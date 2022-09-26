@@ -1,4 +1,12 @@
-# Getting Started with Create React App
+# 💨Hi there it's Khaled
+## 💥Come Check This👇
+#### ⁉ Now you can clone this project and try our Note App 🥰
+
+
+
+Follow the following Tips 👇💕
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
