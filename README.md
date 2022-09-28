@@ -1,6 +1,8 @@
 # Notes App📝
 hi there it's khaled 🖐
-this is simple notes app react..
+
+this is simple notes app react
+
 clone it, sure you'll like it
 
 ## Build
