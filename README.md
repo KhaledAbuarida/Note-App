@@ -18,3 +18,4 @@ npm start
 ### Features
 * create/delete note
 * toggle mode (dark/light mode)
+* store notes data (don't worry we handled it 😉)
