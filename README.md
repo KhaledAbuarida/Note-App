@@ -5,7 +5,6 @@ this is simple notes app react
 
 clone it, sure you'll like it
 
-## Build
 ```
 npm install
 npm run build
