@@ -1,6 +1,6 @@
 {
-  "name": "my-app",
   "homepage": "http://KhaledAbuarida.github.io/Note-App",
+  "name": "Note-App",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
